@@ -229,7 +229,6 @@ module.exports = function(grunt) {
     //          to the dist folder for consumption by mot-web-frontend
 
     grunt.registerTask('copy:dependencies', [
-        'copy:govuk_template', 
         'copy:govuk_template_assets',
         'copy:govuk_frontend_toolkit_scss',
         'copy:govuk_frontend_toolkit_js',
