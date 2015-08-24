@@ -1,0 +1,113 @@
+{{#contentFor "pageTitle"}}Example Layouts{{/contentFor}}
+<main id="content" role="main">
+
+    {{> mot_phase-banner}}
+
+    {{>mot_a_content-header}}
+
+    <div class="text">
+        <p class="lede">Use white space to create a visual hierarchy on the page. Design for small screens first using a single column layout. </p>
+
+        <h3 id="layout-spacing" class="heading-medium">Spacing</h3>
+        <ul class="list-bullet">
+            <li>spacing between elements is usually 5px, 10px, 15px or multiples of 15px</li>
+            <li>gutters are 15px for smaller screens and 30px for larger screens</li>
+        </ul>
+
+
+        <h3 class="heading-medium">Grid layout</h3>
+        <p>Grid classes enable easy cross browser grids. The grids use absolute widths in older versions of IE or percentage based widths in modern browsers.</p>
+        <h4 class="heading-small">Usage</h4>
+    </div>
+
+<pre class="example" style="font-family: monospace;">
+&lt;main role="main"&gt;
+    &lt;div class="grid-row"&gt;
+        &lt;div class="column-two-thirds"&gt;
+            Main content
+        &lt;/div&gt;
+        &lt;div class="column-third"&gt;
+            Sidebar
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="grid-row"&gt;
+        &lt;div class="column-third"&gt;
+            Column one
+        &lt;/div&gt;
+        &lt;div class="column-third"&gt;
+            Column two
+        &lt;/div&gt;
+        &lt;div class="column-third"&gt;
+            Column three
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</pre>
+        
+<h3 class="heading-medium">Examples</h3>
+
+<!-- Grid layout (two thirds / one third) -->
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <h2 class="heading-small">Two thirds</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="column-third">
+        <h2 class="heading-small">One third</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus.</p>
+    </div>
+</div>
+<!-- End -->
+<!-- Grid layout (one half) -->
+<div class="grid-row">
+    <div class="column-half">
+        <h2 class="heading-small">One half</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    </div>
+    <div class="column-half">
+        <h2 class="heading-small">One half</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    </div>
+</div>
+<!-- End -->
+<!-- Grid layout (one third) -->
+<div class="grid-row">
+    <div class="column-third">
+        <h2 class="heading-small">One third</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac.</p>
+    </div>
+    <div class="column-third">
+        <h2 class="heading-small">One third</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac.</p>
+    </div>
+    <div class="column-third">
+        <h2 class="heading-small">One third</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac.</p>
+    </div>
+</div>
+<!-- End -->
+<!-- Grid layout (one quarter) -->
+<div class="grid-row">
+    <div class="column-quarter">
+        <h2 class="heading-small">One quarter</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+    </div>
+    <div class="column-quarter">
+        <h2 class="heading-small">One quarter</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+    </div>
+    <div class="column-quarter">
+        <h2 class="heading-small">One quarter</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+    </div>
+    <div class="column-quarter">
+        <h2 class="heading-small">One quarter</h2>
+        <p>Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+    </div>
+</div>
+
+                {{> mot_m_content-navigation }}
+            </main>
+            

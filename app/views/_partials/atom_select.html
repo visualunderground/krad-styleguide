@@ -1,0 +1,30 @@
+{{#EL_SELECT}}
+    <select 
+        name="{{../name}}" 
+        id="{{../name}}"
+        class="
+            form-control
+            {{#if mod}} form-control-{{mod}}{{/if}}
+        " 
+        {{#if dataTarget }}
+            data-target="{{dataTarget}}" 
+        {{/if}}
+        {{#if dataTargetValue }}
+            data-target-value="{{dataTargetValue}}"
+        {{/if}}
+    >
+        {{#unless noNull}}
+            <option value="">Please select</option>
+        {{/unless}}
+        {{#options}}
+            <option 
+                value="{{value}}"
+                {{#if isSelected}}
+                    selected
+                {{/if}}
+            >
+                {{text}}
+            </option>
+        {{/options}}
+    </select>
+{{/EL_SELECT}}

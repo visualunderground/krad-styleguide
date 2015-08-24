@@ -1,0 +1,34 @@
+<div class="present-data">
+    <div class="present-data__title-container">
+        <h3 class="present-data__title">{{title}}</h3>
+        {{# callsToAction }}
+            <a href="#" class="present-data__title-link">{{link}}</a>
+        {{/ callsToAction }}
+    </div>
+
+    {{# dl }}
+        <dl class="{{cssClass}}">
+            {{# items }}
+                <dt>{{{key}}}</dt>
+                {{# valueIsLink }}
+                    <dd><a href="#">{{{value}}}</a></dd>
+                {{/ valueIsLink }}
+                {{^ valueIsLink }}
+                    <dd>{{{value}}}</dd>
+                {{/ valueIsLink }}
+            {{/ items }}
+        </dl>
+    {{/ dl }}
+    
+    {{# dataList }}
+        <div class="column-two-thirds">
+            {{> mot_a_data-list }}
+        </div>
+    {{/ dataList }}
+    {{# bigData }}
+        <div class="column-two-thirds">
+            {{> mot_a_big-data }}
+        </div>
+    {{/ bigData }}
+</div>
+<hr class="hr--thin">

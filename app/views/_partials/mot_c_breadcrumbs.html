@@ -1,0 +1,18 @@
+{{#if EL_BREADCRUMB }}
+<div id="global-breadcrumb" class="header-context">
+    <nav role="navigation">
+        <ol class="group">
+            <li><a href="#">Home</a></li>
+            {{# EL_BREADCRUMB }}
+            <li>
+                {{#if href }}
+                    <a href="{{href}}">{{{text}}}</a>
+                {{else}}
+                    {{{text}}}
+                {{/if}}
+            </li>
+            {{/ EL_BREADCRUMB }}
+        </ol>
+    </nav>
+</div>
+{{/if}}

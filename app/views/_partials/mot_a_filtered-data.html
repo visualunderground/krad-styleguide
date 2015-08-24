@@ -1,0 +1,43 @@
+{{#PurchaseTable}}
+<h2 class="result__group-heading"><strong>5</strong> purchases in the <strong>last 30 days</strong></h2>
+<table class="result-table">
+    {{#if header}}
+        <thead>
+            <tr>
+            {{#each heading}}
+                <th scope="col" class="{{mod}}">
+                    {{#if href}}
+                        <a href="{{href}}" class="{{sortOrder}}">{{{text}}}</a>
+                    {{else}}
+                        {{{text}}}
+                    {{/if}}
+                </th>
+            {{/each}}
+            </tr>
+        </thead>
+    {{/if}}
+
+    <tbody>
+        {{#each data}}
+        <tr>
+            {{#each this}}
+                <td class="{{mod}}">
+                    {{#if href}}
+                        <a href="{{href}}">{{{text}}}</a>
+                    {{else}}
+                        {{{text}}}
+                    {{/if}}
+                </td>
+            {{/each}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="result__actions">
+    <p>Download purchase history as a
+        <a href="#" rel="external">PDF</a> or 
+        <a href="#" rel="external">CSV (Excel)</a> file.
+    </p>
+</div>
+{{/PurchaseTable}}

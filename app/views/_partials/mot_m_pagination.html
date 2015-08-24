@@ -1,0 +1,17 @@
+{{# EL_PAGER }}
+
+    <ul class="data-paging">
+    	{{#if previous }}
+        <li class="data-paging__prev">
+            <a class="data-paging__link" href="#">Previous <span class="data-paging__page">page</span> <span class="data-paging__numbers">{{previous}} of {{total}}</span></a>
+        </li>
+        {{/if }}
+
+        {{#if next }}
+        <li class="data-paging__next">
+            <a class="data-paging__link" href="#">Next <span class="data-paging__page">page</span> <span class="data-paging__numbers">{{next}} of {{total}}</span></a>
+        </li>
+        {{/if }}
+    </ul>
+
+{{/ EL_PAGER }}

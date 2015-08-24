@@ -1,0 +1,20 @@
+{{#contentFor "pageTitle"}}Create an account - {{ContentHeader.title}}{{/contentFor}}
+
+<main id="content" role="main">
+
+    {{> mot_phase-banner}}
+    {{>mot_a_content-header}}
+    
+    {{#if showLede}}
+        <div class="text">
+            <p class="lede">Security questions are used to identify you if you need to reset your password or contact the help desk.</p>
+        </div>
+    {{/if}}
+
+    <form action="#" method="POST" autocomplete="off" novalidate>
+        {{> molecule_formgroup CONTEXT_SECURITY}}
+        
+        {{> mot_m_content-navigation }}
+    </form>
+
+</main>

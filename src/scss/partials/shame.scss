@@ -1,0 +1,38 @@
+// Used on the buy slots page to reset the spacing in Chrome
+.slot-hero + fieldset legend {
+    float: left;
+}
+
+// To remove the whitespace to the right of the logo
+.header-global {
+    max-width: 90px;
+}
+
+// Validation summary styling is a nested include within elements - needs to unpicked/or renamed
+
+.validation-summary {
+    
+    background-color: $error-background;
+
+    ul, 
+    ol {
+        margin-top: $gutter;
+        margin-bottom: $gutter;
+        color: $error-colour;
+    }
+
+    li, 
+    p { 
+        @include core-19;
+        margin-bottom: 5px;
+    }
+
+    .heading-medium {
+        margin-top: $gutter-half;
+        margin-bottom: 0;
+    }
+}
+
+.heading-medium + .key-value-list {
+    margin-top: 0;
+}

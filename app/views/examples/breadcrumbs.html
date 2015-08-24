@@ -1,0 +1,78 @@
+{{#contentFor "pageTitle"}}Example Breadcrumbs{{/contentFor}}
+<main id="content" role="main">
+
+    {{>mot_phase-banner}}
+    {{>mot_a_content-header}}
+        
+    <div class="text">
+        <p class="lede">
+            Breadcrumbs are used to show a user's hierarchical location within the site and not, necessarily, the path taken. 
+        </p>
+        <p>Breadcrumbs are used in conjunction with the <a href="/examples/content-header/">content header</a> to inform users of <strong>what</strong> they're doing - and <strong>where</strong> they're doing it. </p>
+        
+        <ol class="list-number">
+            <li>breadcrumbs are not used on the Home page</li>
+            <li>the first item must always be a link to Home</li>
+            <li>the last item must never be a link</li>
+            <li>when in an AE/VTS the breadcrumbs should reflect the entities' name</li>
+            <li>task 'steps' must not be shown in the breadcrumb trail</li>
+        </ol>
+    </div>
+    <h3 class="heading-large">Authorised Examiner examples</h3>
+    {{# CONTEXT_AE }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_AE }}
+    {{# CONTEXT_AE_CHANGE }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_AE_CHANGE }}
+    {{# CONTEXT_AE_CHANGE_REVIEW }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_AE_CHANGE_REVIEW }}
+    <div class="text">
+        <p>In the above, please note:</p>
+        <ol class="list-bullet">
+            <li>the last 'crumb' reflects the task (not hyperlinked) - despite the user being on the second step of the task (Reviewing changes to business details)</li>
+            <li>the <a href="/examples/content-header">content header</a> reflects the entity (Authorised Examiner) not the task (Change business details)</li>
+        </ol>
+    </div>
+
+
+    <h3 class="heading-large">Vehicle Testing Station examples</h3>
+    {{# CONTEXT_VTS }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_VTS }}
+    {{# CONTEXT_VTS_CHANGE }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_VTS_CHANGE }}
+    {{# CONTEXT_VTS_CHANGE_REVIEW }}
+        <div class="example">
+            {{>mot_c_breadcrumbs}}
+            {{>mot_a_content-header}}
+        </div>
+    {{/ CONTEXT_VTS_CHANGE_REVIEW }}
+    <div class="text">
+        <p>In the above, please note:</p>
+        <ol class="list-bullet">
+            <li>the last 'crumb' reflects the task (not hyperlinked) - despite the user being on the second step of the task (Reviewing changes to testing facilities)</li>
+            <li>the <a href="/examples/content-header">content header</a> reflects the entity (Vehicle Testing Station) not the task (Change testing facilities)</li>
+        </ol>
+    </div>
+
+
+    {{> mot_m_content-navigation }}
+</main>

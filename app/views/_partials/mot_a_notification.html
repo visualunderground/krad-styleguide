@@ -1,0 +1,10 @@
+<article class="notification{{#nomination}}--nomination{{/nomination}}">
+    <header>
+        <p class="notification__subject{{#unread}}--is-unread{{/unread}}">
+        <a title="{{ subject }}" class="notification__link" href="{{#href }}{{ href }}{{/href}}{{^href}}#{{/href}}">
+                {{subject}}
+            </a>
+        </p>
+        <time class="notification__time" pubdate="">{{time}}</time>
+    </header>
+</article>

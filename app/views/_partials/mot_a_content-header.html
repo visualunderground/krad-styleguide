@@ -1,0 +1,19 @@
+{{#with ContentHeader}}
+    <header class="content-header">
+        <h1>
+            <span class="content-header__type">
+               {{{type}}}
+            </span>
+            <span class="content-header__title">
+                {{{title}}}
+            </span>
+            
+            {{#if progress}}
+                <span class="content-header__progress">{{progress}}</span>
+            {{/if }}
+        </h1>
+        {{#if tertiary }}
+            <h2 class="content-header__tertiary">{{tertiary}}</h2>
+        {{/if }}
+    </header>
+{{/with}}

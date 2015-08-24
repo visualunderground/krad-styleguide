@@ -1,0 +1,47 @@
+{{#contentFor "pageTitle"}}Example form inputs{{/contentFor}}
+
+<main id="content" role="main">
+
+    {{>mot_phase-banner}}
+    {{>mot_a_content-header}}
+
+    <div class="text">
+        <p class="lede">This page demonstrates how to make the MOT forms consistent with the rest of GOV.UK.</p>
+        <p>Use the menu below to view different input types:</p>
+        <ol class="list-number">
+            <li><a href="#example-text">Text inputs</a></li>
+            <li><a href="#example-select">Select inputs</a></li>
+            <li><a href="#example-textarea">Textareas</a></li>
+            <li><a href="#example-date">Date &amp; time inputs</a></li>
+            <li><a href="#example-radio">Radio buttons </a></li>
+            <li><a href="#example-checkbox">Checkboxes</a></li>
+            <li><a href="#example-inset">Inset (hidden) form inputs</a></li>
+            <li><a href="#example-address">Address input</a></li>
+            <li><a href="#example-2fa">PIN/2FA input</a></li>
+        </ol>
+    </div>
+    {{#if showErrorSummary}}
+        <h1 class="heading-large">Validation summary</h1>
+        <div class="validation-summary">
+            <h2 class="heading-medium">There was a problem with the information</h2>
+            <ol>
+                <li>Cylinder capacity - you must enter a cylinder capacity</li>
+                <li>Manufacturer - you must choose a manufacturer</li>
+                <li>Registration mark - must be a valid registration mark</li>
+            </ol>
+        </div>
+    {{/if}}
+    <form action="#">
+        {{>molecule_formgroup CONTEXT_TEXT      legendId='example-text'}}
+        {{>molecule_formgroup CONTEXT_SELECT    legendId='example-select'}}
+        {{>molecule_formgroup CONTEXT_TEXTAREA  legendId='example-textarea'}}
+        {{>molecule_formgroup CONTEXT_DATE      legendId='example-date'}}
+        {{>molecule_formgroup CONTEXT_RADIO     legendId='example-radio'}}
+        {{>molecule_formgroup CONTEXT_CHECKBOX  legendId='example-checkbox'}}
+        {{>molecule_formgroup CONTEXT_INSET     legendId='example-inset'}}
+        {{>molecule_formgroup CONTEXT_ADDRESS   legendId='example-address'}}
+        {{>molecule_formgroup CONTEXT_2FA       legendId='example-2fa'}}
+
+        {{>mot_m_content-navigation}}
+    </form>
+</main>

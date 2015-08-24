@@ -1,0 +1,90 @@
+{{#contentFor "pageTitle"}}Example system messages{{/contentFor}}
+
+<main id="content" role="main">
+
+    {{> mot_phase-banner}}
+    {{>mot_a_content-header}}
+
+    <div class="text">
+        <p class="lede">This page demonstrates how to display system messages in the MOT system.</p>
+        <p><strong>These must not be used as validation messages!</strong></p>
+        <p>Use system messages to draw attention to important content on the page.</p>
+        <ol class="list-number">
+            <li><a href="#example-standard">Standard message</a></li>
+            <li><a href="#example-success">Success message</a></li>
+            <li><a href="#example-failure">Failure message</a></li>
+            <li><a href="#example-important">Important message</a></li>
+        </ol>
+    </div>
+    
+    <h2 class="heading-large" id="example-standard">1. Standard message</h2>
+    <div class="text">
+        <p>Standard messages <code>.message</code> have no icon and are used to convey information that:</p>
+        <ul class="list-bullet">
+            <li>may, in some edge cases, help a user complete a task</li>
+            <li>provides an alternative path through a task (upcoming vehicle search edge cases)</li>
+        </ul> 
+    </div>
+    
+    {{> mot_m_system-message CONTEXT_STANDARD}}
+
+    <p>An optional heading <code>.message__heading</code> can be used.</p>
+    
+    {{> mot_m_system-message CONTEXT_STANDARD_HEADER}}
+
+    <h2 class="heading-large" id="example-success">2. Success message</h2>
+    <div class="text">
+        <p class="lede">&ldquo;A good thing <strong>has</strong> happened.&rdquo;</p>
+        <p>Success messages <code>.message--success</code> are used to convey information that:</p>
+        <ul class="list-bullet">
+            <li>shows a user has been successful in their interaction with the system</li>
+        </ul>
+        <p>Success messages <strong>must not</strong> be used:</p>
+        <ul class="list-bullet">
+            <li>to communicate validation</li>
+            <li>on task completion pages (unless a message is required, or the information is supplementary to the task) - The content of the page should communicate the outcome</li>
+        </ul>
+    </div>
+    
+    {{> mot_m_system-message CONTEXT_SUCCESS }}
+    
+    <p>An optional heading <code>.message__heading</code> can be used.</p>
+    
+    {{> mot_m_system-message CONTEXT_SUCCESS_HEADER}}
+    
+    <!-- Failure -->
+
+    <h2 class="heading-large" id="example-failure">3. Failure message</h2>
+    <div class="text">
+        <p class="lede">&ldquo;A bad thing <strong>has</strong> happened.&rdquo;</p>
+        <p>Failure messages <code>.message--failure</code> are used to convey information that:</p>
+        <ul class="list-bullet">
+            <li>shows a user's interaction with the system has failed and they must essentially "stop and try again"</li>
+        </ul>
+        <p>Failure messages <strong>must not</strong> be used:</p>
+        <ul class="list-bullet">
+            <li>to communicate validation</li>
+            <li>on task completion pages (unless a message is required, or the information is supplementary to the task) - The content of the page should communicate the outcome</li>
+        </ul>
+    </div>
+
+    {{> mot_m_system-message CONTEXT_FAILURE}}
+
+    <p>An optional heading <code>.message__heading</code> can be used.</p>
+
+    {{> mot_m_system-message CONTEXT_FAILURE_HEADER}}
+    
+    <h2 class="heading-large" id="example-important">4. Important message</h2>
+    <div class="text">
+        <p class="lede">&ldquo;A bad thing <strong class="highlight">could</strong> happen if you continue.&rdquo;</p>
+        <p>Important messages <code>.message--important</code> are used to convey <strong>serious</strong> information that will often have consequences.</p>
+        <p>Use these messages with care.</p>
+    </div>
+    {{> mot_m_system-message CONTEXT_IMPORTANT}}
+
+    <p>An optional heading <code>.message__heading</code> can be used.</p>
+
+    {{> mot_m_system-message CONTEXT_IMPORTANT_HEADER}}
+
+    {{> mot_m_content-navigation }}
+</main>

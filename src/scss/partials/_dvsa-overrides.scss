@@ -1,0 +1,8 @@
+// Negates the need for the ".form-group-compound" modifier
+.form-group + .panel-indent {
+    float: left;
+    @include box-sizing(border-box);
+    width: 100%;
+    margin: -20px 0 30px;
+    padding: 10px 15px;
+}

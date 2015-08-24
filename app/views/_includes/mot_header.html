@@ -1,0 +1,29 @@
+<header role="banner" id="global-header" class="with-proposition">
+    <div class="header-wrapper">
+        <div class="header-global">
+            <div class="header-logo">
+                <a href="/" title="Go to the homepage" id="logo" class="content">
+                    <img src="{{assetPath}}images/logo_mot.gif" width="56" height="53" alt=""></a>
+            </div>
+        </div>
+        {{^ loggedOut }}
+            <div class="header-proposition">
+                <div class="content">
+                    <nav id="proposition-menu">
+                        <span class="header-user__name">Bob Bobbingdon</span>
+                        <span class="header-user__id">007ABC</span>
+                        <span class="header-user__address">
+                            Quickfit - Bristol South BR2 11GH
+                            <a href="#">Change Site</a>
+                        </span>
+                        <ul class="header-user__menu">
+                            <li><a href="/user-home/">Home</a></li>
+                            <li><a href="/your-account/">Your account</a></li>
+                            <li><a href="#">Sign out</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {{/ loggedOut }}
+    </div>
+</header>

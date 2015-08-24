@@ -1,0 +1,17 @@
+{{#contentFor "pageTitle"}}Create an account - {{ContentHeader.title}}{{/contentFor}}
+
+<main id="content" role="main">
+
+    {{>mot_phase-banner}}
+    {{>mot_a_content-header}}
+
+    <div class="text">
+        <p class="lede">Your address is used to identify you if you contact the help desk.</p>
+    </div>
+
+    <form action="#" method="post" autocomplete="off" novalidate>
+        {{> molecule_formgroup CONTEXT_ADDRESS}}
+        {{> mot_m_content-navigation }}
+    </form>
+
+</main>

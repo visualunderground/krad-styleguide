@@ -1,0 +1,8 @@
+{{# EL_MESSAGE }}
+    <div class="message{{#if mod}}--{{mod}}{{/if}}">
+        {{#if heading }}
+            <h3 class="message__heading">{{{heading}}}</h3>
+        {{/if }}
+        {{{html}}}
+    </div>
+{{/ EL_MESSAGE }}
