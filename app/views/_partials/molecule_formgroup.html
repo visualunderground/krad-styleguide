@@ -121,14 +121,16 @@
                     {{> atom_question}}
                 </label>
                     <input 
-                        type="{{type}}"
+                        type="{{EL_INPUT.type}}"
                         name="{{../name}}-target" 
                         id="{{../name}}-target"
-                        value="{{value}}"
+                        value="{{EL_INPUT.value}}"
                         class="
                             form-control
-                            {{#if mod}} form-control-{{mod}}{{/if}}
+                            {{#if EL_INPUT.mod}} form-control-{{EL_INPUT.mod}}{{/if}}
                         "
+                        {{#if EL_INPUT.isPasteDisabled}}onpaste="return false;"{{/if}}
+                        {{#if EL_INPUT.isCopyDisabled}}oncopy="return false;"{{/if}}
                     >
             </div>
         {{/EL_TARGET}}

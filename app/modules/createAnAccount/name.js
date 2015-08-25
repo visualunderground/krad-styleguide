@@ -40,12 +40,12 @@
                 {
                     name: 'emailAddress',
                     Question: {text: 'Email address', hint: 'Your User ID will be sent to this address'},
-                    EL_INPUT: {type: 'email'}
+                    EL_INPUT: {type: 'email', isCopyDisabled: true}
                 },
                 {
                     name: 'confirmEmailAddress',
                     Question: {text: 'Re-type your email address'},
-                    EL_INPUT: {type: 'email'}
+                    EL_INPUT: {type: 'email', isCopyDisabled: true}
                 }
             ]
         },
