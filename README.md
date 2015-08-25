@@ -1,4 +1,7 @@
 #  Kainos User Research & Design Styleguide
+
+View the Styleguide here: [https://kurad-styleguide.herokuapp.com/](https://kurad-styleguide.herokuapp.com/)
+
 ---
 ## Documentation
 
