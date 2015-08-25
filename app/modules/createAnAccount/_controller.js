@@ -31,16 +31,15 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
         this.view = 'createAnAccount/name';
         this.data = 'createAnAccount/name';
         var viewData = this.styleguide.getData(this.data, {'loggedOut' : true});
-        
         // Manipulate data based on session values
         viewData.CONTEXT_NAME.EL_ROW[0] = this.manipulateViewData( 'firstName', 'EL_INPUT', viewData.CONTEXT_NAME.EL_ROW[0]);
         viewData.CONTEXT_NAME.EL_ROW[1] = this.manipulateViewData( 'middleName', 'EL_INPUT', viewData.CONTEXT_NAME.EL_ROW[1]);
         viewData.CONTEXT_NAME.EL_ROW[2] = this.manipulateViewData( 'lastName', 'EL_INPUT', viewData.CONTEXT_NAME.EL_ROW[2]);
         viewData.CONTEXT_EMAIL.EL_ROW[0] = this.manipulateViewData( 'emailAddress', 'EL_INPUT', viewData.CONTEXT_EMAIL.EL_ROW[0]);
         viewData.CONTEXT_EMAIL.EL_ROW[1] = this.manipulateViewData( 'confirmEmailAddress', 'EL_INPUT', viewData.CONTEXT_EMAIL.EL_ROW[1]);
-        
-        // console.log(JSON.stringify(viewData));
-        // this.res.send(this.req.session);
+        // Add validation summary to payload
+        viewData.validationSummary = this.req.session.validationSummary;
+        this.req.session.validationSummary = [];
         // Render the template
         this.res.render(this.view, viewData);
     };
@@ -94,6 +93,9 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
         viewData.CONTEXT_ADDRESS.EL_ROW[2] = this.manipulateViewData( 'address3', 'EL_INPUT', viewData.CONTEXT_ADDRESS.EL_ROW[2]);
         viewData.CONTEXT_ADDRESS.EL_ROW[3] = this.manipulateViewData( 'address4', 'EL_INPUT', viewData.CONTEXT_ADDRESS.EL_ROW[3]);
         viewData.CONTEXT_ADDRESS.EL_ROW[4] = this.manipulateViewData( 'address5', 'EL_INPUT', viewData.CONTEXT_ADDRESS.EL_ROW[4]);
+        // Add validation summary to payload
+        viewData.validationSummary = this.req.session.validationSummary;
+        this.req.session.validationSummary = [];
         // Render the template
         this.res.render(this.view, viewData);
     };
@@ -139,6 +141,9 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
         // Manipulate data based on session values
         viewData.CONTEXT_SECURITY.EL_ROW[0] = this.manipulateViewData( 'question1', 'EL_SELECT', viewData.CONTEXT_SECURITY.EL_ROW[0]);
         viewData.CONTEXT_SECURITY.EL_ROW[1] = this.manipulateViewData( 'answer1', 'EL_INPUT', viewData.CONTEXT_SECURITY.EL_ROW[1]);
+        // Add validation summary to payload
+        viewData.validationSummary = this.req.session.validationSummary;
+        this.req.session.validationSummary = [];
         // Render the template
         this.res.render(this.view, viewData);
     };
@@ -174,6 +179,9 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
         // Manipulate data based on session values
         viewData.CONTEXT_SECURITY.EL_ROW[0] = this.manipulateViewData( 'question2', 'EL_SELECT', viewData.CONTEXT_SECURITY.EL_ROW[0]); 
         viewData.CONTEXT_SECURITY.EL_ROW[1] = this.manipulateViewData( 'answer2', 'EL_INPUT', viewData.CONTEXT_SECURITY.EL_ROW[1]);
+        // Add validation summary to payload
+        viewData.validationSummary = this.req.session.validationSummary;
+        this.req.session.validationSummary = [];
         // Render the template
         this.res.render(this.view, viewData);
     };
@@ -207,16 +215,11 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
         this.data = 'createAnAccount/password';
         var viewData = this.styleguide.getData(this.data, {'loggedOut' : true});
         // Manipulate data based on session values
-        viewData.password = this.req.session.password;
-        if (this.req.session.validationMessages && typeof(this.req.session.validationMessages.password) !== 'undefined') {
-            viewData.passwordValidation = this.req.session.validationMessages.password;
-            this.req.session.validationMessages.password = null;
-        }
-        viewData.passwordConfirm = this.req.session.passwordConfirm;
-        if (this.req.session.validationMessages && typeof(this.req.session.validationMessages.passwordConfirm) !== 'undefined') {
-            viewData.passwordConfirmValidation = this.req.session.validationMessages.passwordConfirm;
-            this.req.session.validationMessages.passwordConfirm = null;
-        }
+        viewData.CONTEXT_PASSWORD.EL_ROW[1] = this.manipulateViewData( 'password', 'EL_INPUT', viewData.CONTEXT_PASSWORD.EL_ROW[1]); 
+        viewData.CONTEXT_PASSWORD.EL_ROW[2] = this.manipulateViewData( 'passwordConfirm', 'EL_INPUT', viewData.CONTEXT_PASSWORD.EL_ROW[2]);
+        // Add validation summary to payload
+        viewData.validationSummary = this.req.session.validationSummary;
+        this.req.session.validationSummary = [];
         // Render the template
         this.res.render(this.view, viewData);
     };
@@ -372,6 +375,13 @@ var sendgrid  = require('sendgrid')(appConfig.getSendGridAPIKey());
             }
         }
         if (this.req.session.validationMessages && typeof(this.req.session.validationMessages[property]) !== 'undefined') {
+
+            if (!this.req.session.validationSummary) {
+                this.req.session.validationSummary = [];
+            }
+
+            this.req.session.validationSummary.push({'field': o.Question.text, 'error': this.req.session.validationMessages[property]});
+
             o.error = this.req.session.validationMessages[property];
             delete this.req.session.validationMessages[property];
         }
