@@ -415,6 +415,31 @@
                 }
             ]
         },
+
+        CONTEXT_PASSWORD: {
+            legend: '10. Password with criteria',
+            EL_ROW: [
+                {
+                    EL_CRITERIA: {
+                        name: 'password-criteria-scope',
+                        text: 'Your password must have:',
+                        userId: 'MODD0011' // Remove this for initial password creation
+                    }
+                },
+                {
+                    // error: 'oops I did it again',
+                    name: 'password',
+                    Question: {text: 'Create a password'},
+                    EL_INPUT: {type: 'password'}
+                },
+                {
+                    // error: 'oops I did it again',
+                    name: 'passwordConfirm',
+                    Question: {text: 'Re-type your password'},
+                    EL_INPUT: {type: 'password'}
+                }
+            ]
+        },
         
         ContentNavigation : [
             {

@@ -18,6 +18,7 @@
             <li><a href="#example-inset">Inset (hidden) form inputs</a></li>
             <li><a href="#example-address">Address input</a></li>
             <li><a href="#example-2fa">PIN/2FA input</a></li>
+            <li><a href="#example-2fa">Password with criteria</a></li>
         </ol>
     </div>
     {{#if showErrorSummary}}
@@ -41,7 +42,19 @@
         {{>molecule_formgroup CONTEXT_INSET     legendId='example-inset'}}
         {{>molecule_formgroup CONTEXT_ADDRESS   legendId='example-address'}}
         {{>molecule_formgroup CONTEXT_2FA       legendId='example-2fa'}}
+        {{>molecule_formgroup CONTEXT_PASSWORD  legendId='example-password'}}
 
         {{>mot_m_content-navigation}}
     </form>
 </main>
+{{#contentFor "bodyEndInlineScripts"}}
+<script type="application/javascript">
+    if(typeof(document.querySelectorAll) != 'undefined'){
+        var passwordCriteria = new DVSA.Modules.DVSACriteria.Criteria({
+            trigger: document.querySelector("#password"),
+            criteria: document.querySelector('#password-criteria-scope')
+        });
+        passwordCriteria.checkCriteria();
+    }
+</script>
+{{/contentFor}}
