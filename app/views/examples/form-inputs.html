@@ -21,17 +21,13 @@
             <li><a href="#example-2fa">Password with criteria</a></li>
         </ol>
     </div>
-    {{#if showErrorSummary}}
+    
+    {{#if validationSummary}}
         <h1 class="heading-large">Validation summary</h1>
-        <div class="validation-summary">
-            <h2 class="heading-medium">There was a problem with the information</h2>
-            <ol>
-                <li>Cylinder capacity - you must enter a cylinder capacity</li>
-                <li>Manufacturer - you must choose a manufacturer</li>
-                <li>Registration mark - must be a valid registration mark</li>
-            </ol>
-        </div>
     {{/if}}
+
+    {{>molecule_validationsummary}}
+
     <form action="#">
         {{>molecule_formgroup CONTEXT_TEXT      legendId='example-text'}}
         {{>molecule_formgroup CONTEXT_SELECT    legendId='example-select'}}

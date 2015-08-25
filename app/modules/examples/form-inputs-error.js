@@ -12,7 +12,11 @@
             title : 'Form inputs in error state'
         },
 
-        showErrorSummary : true,
+        validationSummary: [
+            {field: 'Cylinder capacity', error: 'you must enter a cylinder capacity'},
+            {field: 'Manufacturer', error: 'you must choose a manufacturer'},
+            {field: 'Registration mark', error: 'must be a valid registration mark'},
+        ],
         
         CONTEXT_TEXT: {
             legend: '1. Text inputs',
