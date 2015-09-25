@@ -16,5 +16,9 @@ module.exports = {
         app.get('/ae', function (req, res) {
             res.render('entities/template', styleguide.getData('entities/ae'));
         });
+
+        app.get('/vehicle', function (req, res) {
+            res.render('entities/template', styleguide.getData('entities/vehicle'));
+        });
     }
 };
