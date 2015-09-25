@@ -7,6 +7,7 @@ var express = require('express'),
     cookieSession = require('cookie-session'),
     bodyParser = require('body-parser'),
     routes = require(__dirname + '/_routes.js'),
+    routesEntities = require(__dirname + '/modules/entities/_routes.js'),
     routesCreateAnAccount = require(__dirname + '/modules/createAnAccount/_routes.js'),
     routesExamples = require(__dirname + '/modules/examples/_routes.js'),
     routesSignIn = require(__dirname + '/modules/signIn/_routes.js'),
@@ -57,6 +58,7 @@ app.use(express.static(__dirname + '/'));
 
 // routes
 routes.bind(app, styleguide);
+routesEntities.bind(app, styleguide);
 routesExamples.bind(app, styleguide);
 routesCreateAnAccount.bind(app, styleguide);
 routesSignIn.bind(app, styleguide);

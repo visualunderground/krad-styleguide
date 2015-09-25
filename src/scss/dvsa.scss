@@ -1,5 +1,5 @@
 // ==========================================================================
-// Import elements 'main.scss' file
+// Import elements 'main' file
 // *Comment* out as overwritten
 // ==========================================================================
 // Helpers
@@ -17,12 +17,12 @@
 @import "elements/panels";
 @import "elements/icons";
 // ==========================================================================
-// End elements 'main.scss' file
+// End elements 'main' file
 // ==========================================================================
 @import "config/colours";
 @import "partials/icons";
 @import "partials/typography";
-@import "partials/mot-global-header.scss";
+@import "partials/mot-global-header";
 @import "partials/hero";
 @import "partials/tables";
 @import "partials/buttons";
@@ -45,11 +45,16 @@
 @import "partials/messages";
 @import "partials/typeahead";
 @import "partials/criteria";
-@import "partials/search-group.scss";
+@import "partials/search-group";
 @import "partials/layout-filter-data";
 @import "partials/filter";
 @import "partials/data-paging";
 @import "partials/sign-in";
+
+@import "partials/badge";
+@import "partials/related";
+@import "partials/summary-heading";
+@import "partials/table-summary";
 
  
 @import "partials/dvsa-overrides";

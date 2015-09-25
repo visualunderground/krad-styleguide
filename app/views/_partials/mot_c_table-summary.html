@@ -1,0 +1,46 @@
+{{# element:key-value-list }}
+    <table class="table-summary">
+        {{# key-value-list-heading }}
+            <thead>
+                <tr>
+                    <th class="table-summary__heading" colspan="2">{{value}}</th>
+                </tr>
+            </thead>
+        {{/ key-value-list-heading }}
+        <tbody>
+            {{# key-value-list-data }}
+                <tr>
+                    {{# key }}
+                        <th class="table-summary__key{{# modifier }}--{{modifier}}{{/ modifier }}">
+
+                            {{{value}}}
+
+                            {{# if meta }}
+                                <span class="table-summary__meta">{{{meta}}}</span>
+                            {{/ if }}
+                        </th>
+                    {{/ key }}
+                    {{# value }}
+                        <td class="table-summary__value{{# modifier }}--{{modifier}}{{/ modifier }}">
+                            {{# if href }}
+                                <a href="{{{href}}}">{{{value}}}</a>
+                            {{else}}
+                                {{{value}}}
+                            {{/ if }}
+                            {{# if meta }}
+                                <span class="table-summary__meta">{{{meta}}}</span>
+                            {{/ if }}
+                        </td>
+                    {{/ value }}
+                </tr>
+            {{/ key-value-list-data }}
+        </tbody>
+        {{# key-value-list-footer }}
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="text-secondary">{{value}}</td>
+                </tr>
+            </tfoot>
+        {{/ key-value-list-footer }}
+    </table>
+{{/ element:key-value-list }}

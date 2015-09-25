@@ -1,0 +1,28 @@
+{{#EL_STATUS}}
+    <ul class="related__status">
+        {{#statusList}}
+            <li>
+                {{#state}}
+                    <span class="badge{{#if mod}}--{{mod}}{{/if}}">{{value}}</span>
+                {{/state}}
+                <strong>{{type}}</strong>
+                {{#if meta}}
+                    <br><span class="text-secondary">{{meta}}</span>
+                {{/if}}
+            </li>
+        {{/statusList}}
+    </ul>
+{{/EL_STATUS}}
+
+{{#EL_RELATED}}
+    <div class="related__section">
+        <h2 class="related__section-title">{{title}}</h2>
+        <ul class="related__section-links">
+            {{#list}}
+                <li><a href="{{#href}}{{href}}{{/href}}{{^href}}#{{/href}}">{{text}}</a></li>
+            {{/list}}
+        </ul>
+    </div>
+{{/EL_RELATED}}
+
+
