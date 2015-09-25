@@ -11,7 +11,7 @@
             {{# key-value-list-data }}
                 <tr>
                     {{# key }}
-                        <th class="table-summary__key{{# modifier }}--{{modifier}}{{/ modifier }}">
+                        <th class="table-summary__key{{# if modifier }}--{{modifier}}{{/ if }}">
 
                             {{{value}}}
 
@@ -21,7 +21,7 @@
                         </th>
                     {{/ key }}
                     {{# value }}
-                        <td class="table-summary__value{{# modifier }}--{{modifier}}{{/ modifier }}">
+                        <td class="table-summary__value{{# if modifier }}--{{modifier}}{{/ if }}">
                             {{# if href }}
                                 <a href="{{{href}}}">{{{value}}}</a>
                             {{else}}

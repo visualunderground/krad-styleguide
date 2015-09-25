@@ -1,0 +1,69 @@
+{{#contentFor "pageTitle"}}Entity: {{ContentHeader.type}}{{/contentFor}}
+<main id="content" role="main">
+
+    {{>mot_phase-banner}}
+    {{>mot_c_breadcrumbs}}
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            {{>mot_a_content-header}}
+
+            {{# CONTEXT_ONE }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_ONE }}
+            {{# CONTEXT_TWO }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_TWO }}
+            {{# CONTEXT_THREE }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_THREE }}
+            {{# CONTEXT_FOUR }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_FOUR }}
+            {{# CONTEXT_FIVE }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_FIVE }}
+            {{# CONTEXT_SIX }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_SIX }}
+            {{# CONTEXT_SEVEN }}
+                <h3 class="summary-heading">
+                    {{heading}}
+                    {{# callsToAction }}<span class="summary-heading__action"><a href="#" >{{value}}</a></span>{{/ callsToAction }}
+                </h3>
+                {{> mot_c_table-summary }}
+            {{/ CONTEXT_SEVEN }}
+        </div>
+        <div class="column-third">
+            <div class="related">
+                {{>mot_related-content}}
+            </div>
+        </div>
+    </div>
+
+    {{> mot_m_content-navigation }}
+</main>
