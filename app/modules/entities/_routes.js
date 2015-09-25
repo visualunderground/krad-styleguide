@@ -12,5 +12,9 @@ module.exports = {
         app.get('/vts', function (req, res) {
             res.render('entities/template', styleguide.getData('entities/vts'));
         });
+
+        app.get('/ae', function (req, res) {
+            res.render('entities/template', styleguide.getData('entities/ae'));
+        });
     }
 };
