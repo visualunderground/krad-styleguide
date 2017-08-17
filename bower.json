@@ -23,10 +23,5 @@
     "govuk_elements": "https://github.com/alphagov/govuk_elements.git#e045369014b4483553d3492d768656d3d4ba4ab8",
     "govuk_toolkit": "https://github.com/alphagov/govuk_frontend_toolkit.git#65f8bcae833f153bdd1607b6a1b21a5b75cc33e5",
     "govuk_template": "https://github.com/alphagov/govuk_template_mustache.git#v0.12.0"
-  },
-  "devDependencies": {
-    "chai": "~2.1.2",
-    "mocha": "~2.2.1",
-    "sinon-browser-only": "~1.12.1"
   }
 }

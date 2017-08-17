@@ -3,7 +3,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-    
+
     require('time-grunt')(grunt);
 
     grunt.initConfig({
@@ -54,14 +54,6 @@ module.exports = function(grunt) {
                 src: 'authentication.js',
                 dest: 'dist/javascripts/'
             },
-
-            // govuk_template: {
-            //     expand: true,
-            //     src: 'bower_components/govuk_template/views/layouts/govuk_template.html',
-            //     dest: 'govuk_components/views/',
-            //     flatten: true,
-            //     filter: 'isFile'
-            // },
 
             govuk_template_assets: {
                 expand: true,
@@ -124,18 +116,6 @@ module.exports = function(grunt) {
                 src: ['images/**', 'javascripts/**', 'stylesheets/**'],
                 cwd: 'app/public/',
                 dest: 'dist/'
-            },
-
-            dev: {
-                expand: true,
-                flatten: true,
-                src: [
-                    'bower_components/chai/chai.js',
-                    'bower_components/mocha/mocha.js',
-                    'bower_components/mocha/mocha.css',
-                    'bower_components/sinon-browser-only/sinon.js',
-                ],
-                dest: 'src/js/vendor/'
             }
         },
 
@@ -170,27 +150,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Options are in the .jshintrc
-        jshint: {
-            options: {
-                reporter: require('jshint-stylish'),
-                // See https://jslinterrors.com
-                '-W083': true, // Functions in loop error.
-                '-W004': true, // {a} already defined. This is happening whether we are checking for option config object.
-            },
-            beforeconcat: ['src/js/dvsa.js', 'src/js/dvsa/*.js', 'src/js/main.js'],
-            afterconcat: ['app/public/javascripts/dvsa.js']
-        },
-
-        shell: {
-            options: {
-                stderr: false
-            },
-            wraith: {
-                command: 'wraith capture tests/wraith/configs/config.yaml && open tests/wraith/shots/gallery.html'
-            }
-        },
-
         uglify: {
             authentication: {
                 options: {
@@ -211,21 +170,19 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-scss-lint');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-shell');
 
     // Copy Tasks:
-    //      1.  'copy:dependencies' copies, and amalgamates, assets from Bower dependencies to a 
-    //          'govuk_components' directory AND then copies required assets to the application's 
+    //      1.  'copy:dependencies' copies, and amalgamates, assets from Bower dependencies to a
+    //          'govuk_components' directory AND then copies required assets to the application's
     //          'public' folder
     //
-    //      2.  'copy:to-dist' copies the front end assets within the express app 
+    //      2.  'copy:to-dist' copies the front end assets within the express app
     //          to the dist folder for consumption by mot-web-frontend
 
     grunt.registerTask('copy:dependencies', [
@@ -240,9 +197,9 @@ module.exports = function(grunt) {
     ]);
 
     // Build assets from src files
-    grunt.registerTask('build:css', ['scsslint:dev', 'sass:dev']);
+    grunt.registerTask('build:css', ['sass:dev']);
     grunt.registerTask('build:img', ['imagemin:dist']);
-    grunt.registerTask('build:js', ['jshint:beforeconcat', 'concat:js', 'jshint:afterconcat', 'uglify:authentication']);
+    grunt.registerTask('build:js',  ['concat:js', 'uglify:authentication']);
 
     grunt.registerTask('build:no-lint', ['sass:dev', 'build:img', 'concat:js', 'uglify:authentication']);
     grunt.registerTask('build', ['build:css', 'build:img', 'build:js']);
@@ -251,7 +208,6 @@ module.exports = function(grunt) {
 
     // Copy assets to dist folder
     grunt.registerTask('dist', ['copy:todist']);
-    grunt.registerTask('test:integration', ['shell:wraith']);
 
     // Default task that happens during development
     grunt.registerTask('default', ['build:css', 'build:js']);

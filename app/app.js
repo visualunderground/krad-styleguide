@@ -10,25 +10,13 @@ var express = require('express'),
     routesCreateAnAccount = require(__dirname + '/modules/createAnAccount/_routes.js'),
     routesExamples = require(__dirname + '/modules/examples/_routes.js'),
     routesSignIn = require(__dirname + '/modules/signIn/_routes.js'),
+    routesDocumentation = require(__dirname + '/docs/documentation_routes.js'),
     app = express(),
     port = (process.env.PORT || 3008),
     styleguide = require(__dirname + '/_commonHelpers/styleguide.js').Styleguide,
     appConfig = require(__dirname + '/appConfig.js').AppConfig;
 
-// Create the wraith spider file.
-// Commented out for now due to reshuffle of routing files
-// var screenScrape = require(__dirname + '/src/js/screen.js').Screen,
-//     path = __dirname + '/routes/';
-// screenScrape.getList(path);
-// screenScrape.writeSpiderFile(__dirname + '/spider.txt');
-
 styleguide.setOptions({ viewDir: __dirname, assetPath: '/public/' });
-
-// Application settings
-// app.engine('html', require(__dirname + '/../lib/template-engine.js').__express);
-// app.set('view engine', 'html');
-// app.set('vendorViews', __dirname + '/views');
-// app.set('views', __dirname + '/views');
 
 // ** HBS VIEW ENGINE ** //
 var hbs = require('express-hbs');
@@ -60,6 +48,7 @@ routes.bind(app, styleguide);
 routesExamples.bind(app, styleguide);
 routesCreateAnAccount.bind(app, styleguide);
 routesSignIn.bind(app, styleguide);
+routesDocumentation.bind(app, styleguide);
 
 // start the app
 app.listen(port);
