@@ -14,8 +14,3 @@ govuk_components
 app/public/stylesheets/
 app/public/images/
 app/public/javascripts/
-
-# Ignore wraith tests
-/tests/wraith/shots/
-/tests/wraith/shots_history/
-spider.txt
