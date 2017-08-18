@@ -2,13 +2,10 @@
 .DS_Store
 .idea/
 .start.pid
-.bundle
 
 # Ignore dependencies
 node_modules
-bower_components
-govuk_components
-/vendor/
+vendor
 
 # Ignore compiled assets
 app/public/stylesheets/

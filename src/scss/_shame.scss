@@ -1,0 +1,17 @@
+.global-footer__inner {
+  &:before {
+    background: url("/images/logotype-nhs-colour.png") no-repeat;
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url("/images/logotype-nhs-colour@2x.png");
+      background-size: 79px 32px;
+    }
+  }
+}
+
+.global-header__link {
+  background: url("/images/logotype-nhs-colour__reverse.png") no-repeat;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("/images/logotype-nhs-colour__reverse@2x.png");
+    background-size: 79px 32px;
+  }
+}

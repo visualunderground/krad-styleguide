@@ -7,13 +7,17 @@
 	</div>
 
 	<div class="grid-row">
-
-		<div class="column-two-thirds">
-
-			{{{document}}}
-
+		<div class="column--one-quarter">
+			{{#navigation.children}}
+				<h3>{{name}}</h3>
+					{{#children}}
+						&nbsp;<a href="{{path}}">{{name}}</a><br>
+					{{/children}}
+			{{/navigation.children}}
 		</div>
-
+		<div class="column--three-quarters">
+			{{{document}}}
+		</div>
 	</div>
 
 </main>

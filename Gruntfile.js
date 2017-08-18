@@ -1,215 +1,148 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 4, nomen: true */
-/*global require, module */
-'use strict';
+'use strict'
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+  require('time-grunt')(grunt)
 
-    require('time-grunt')(grunt);
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-
-        // Builds Sass
-        sass: {
-            dev: {
-                options: {
-                    includePaths: ['govuk_components/public/sass'],
-                    outputStyle: 'compressed',
-                    imagePath: '../images'
-                },
-                files: {
-                    'app/public/stylesheets/dvsa.css': 'src/scss/dvsa.scss',
-                    'app/public/stylesheets/dvsa-ie6.css': 'src/scss/dvsa-ie6.scss',
-                    'app/public/stylesheets/dvsa-ie7.css': 'src/scss/dvsa-ie7.scss',
-                    'app/public/stylesheets/dvsa-ie8.css': 'src/scss/dvsa-ie8.scss'
-                }
-            }
+    // Builds Sass
+    sass: {
+      dev: {
+        options: {
+          includePaths: ['src/vendor/frontend-library/styles'],
+          outputStyle: 'compressed',
+          imagePath: '../images'
         },
-
-        scsslint: {
-            dev: [
-                'src/**/*.scss'
-            ]
-        },
-
-        imagemin: {
-            options: {
-                optimizationLevel: 3
-            },
-            dist: {
-                files: [{
-                    expand: true, // Enable dynamic expansion
-                    cwd: 'src/images/', // Src matches are relative to this path
-                    src: ['**/*.{png,jpg,jpeg,gif}'], // Actual patterns to match
-                    dest: 'app/public/images/' // Destination path prefix
-                }]
-            }
-        },
-
-        copy: {
-
-            authentication_js: {
-                expand: true,
-                cwd: 'src/js/dvsa/',
-                src: 'authentication.js',
-                dest: 'dist/javascripts/'
-            },
-
-            govuk_template_assets: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_template/assets/',
-                dest: 'govuk_components/public/'
-            },
-
-            govuk_frontend_toolkit_scss: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_toolkit/stylesheets/',
-                dest: 'govuk_components/public/sass/'
-            },
-
-            govuk_frontend_toolkit_js: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_toolkit/javascripts/',
-                dest: 'govuk_components/public/javascripts/'
-            },
-
-            govuk_frontend_toolkit_img: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_toolkit/images/',
-                dest: 'govuk_components/public/images/icons/'
-            },
-
-            govuk_elements_js: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_elements/public/javascripts/',
-                dest: 'govuk_components/public/javascripts/'
-            },
-
-            govuk_elements_img: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_elements/public/images/',
-                dest: 'govuk_components/public/images/'
-            },
-
-            govuk_elements_scss: {
-                expand: true,
-                src: '**',
-                cwd: 'bower_components/govuk_elements/public/sass/',
-                dest: 'govuk_components/public/sass/'
-            },
-
-            toapp: {
-                expand: true,
-                src: ['images/**', 'javascripts/**', 'stylesheets/**'],
-                cwd: 'govuk_components/public/',
-                dest: 'app/public/'
-            },
-
-            todist: {
-                expand: true,
-                src: ['images/**', 'javascripts/**', 'stylesheets/**'],
-                cwd: 'app/public/',
-                dest: 'dist/'
-            }
-        },
-
-        watch: {
-            css: {
-                files: 'src/scss/**/*.scss',
-                tasks: ['build:css'],
-                options: {
-                    interrupt: true,
-                    livereload: true,
-                },
-            },
-            js: {
-                files: ['src/js/dvsa.js','src/js/dvsa/*.js', 'src/js/main.js'],
-                tasks: ['build:js'],
-                options: {
-                    interrupt: true,
-                    livereload: true,
-                }
-            }
-        },
-
-        concat: {
-            js: {
-                src: [
-                    'src/js/dvsa.js',
-                    'src/js/dvsa/*.js',
-                    // main.js always last !
-                    'src/js/main.js',
-                ],
-                dest: 'app/public/javascripts/dvsa.js'
-            }
-        },
-
-        uglify: {
-            authentication: {
-                options: {
-                    mangle: false,
-                    sourceMap: false,
-                    compress: {
-                        drop_console: true
-                    },
-                    // the banner is inserted at the top of the output
-                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-                },
-                files: {
-                    'app/public/javascripts/authentication.js': ['src/js/dvsa/authentication.js']
-                }
-            }
+        files: {
+          'app/public/stylesheets/nhsuk.css': 'src/scss/nhsuk.scss',
+          'app/public/stylesheets/nhsuk-ie6.css': 'src/scss/nhsuk-ie6.scss',
+          'app/public/stylesheets/nhsuk-ie7.css': 'src/scss/nhsuk-ie7.scss',
+          'app/public/stylesheets/nhsuk-ie8.css': 'src/scss/nhsuk-ie8.scss',
+          'app/public/stylesheets/nhsuk-print.css': 'src/scss/nhsuk-print.scss'
         }
-    });
+      }
+    },
 
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-scss-lint');
-    grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    scsslint: {
+      dev: [
+        'src/**/*.scss'
+      ]
+    },
 
-    // Copy Tasks:
-    //      1.  'copy:dependencies' copies, and amalgamates, assets from Bower dependencies to a
-    //          'govuk_components' directory AND then copies required assets to the application's
-    //          'public' folder
-    //
-    //      2.  'copy:to-dist' copies the front end assets within the express app
-    //          to the dist folder for consumption by mot-web-frontend
+    imagemin: {
+      options: {
+        optimizationLevel: 3
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/images',
+            src: ['**/*.{png,jpg,jpeg,gif}'],
+            dest: 'app/public/images/'
+          },
+          {
+            expand: true,
+            cwd: 'src/vendor/frontend-library/assets/images',
+            src: ['**/*.{png,jpg,jpeg,gif}'],
+            dest: 'app/public/images/'
+          }
+        ]
+      }
+    },
 
-    grunt.registerTask('copy:dependencies', [
-        'copy:govuk_template_assets',
-        'copy:govuk_frontend_toolkit_scss',
-        'copy:govuk_frontend_toolkit_js',
-        'copy:govuk_frontend_toolkit_img',
-        'copy:govuk_elements_scss',
-        'copy:govuk_elements_js',
-        'copy:govuk_elements_img',
-        'copy:toapp'
-    ]);
+    copy: {
+
+      frontendLibrary: {
+        expand: true,
+        src: '**',
+        cwd: 'node_modules/frontend-library/app',
+        dest: 'src/vendor/frontend-library/'
+      },
+
+      authentication_js: {
+        expand: true,
+        cwd: 'src/js/dvsa/',
+        src: 'authentication.js',
+        dest: 'dist/javascripts/'
+      },
+
+      todist: {
+        expand: true,
+        src: ['images/**', 'javascripts/**', 'stylesheets/**'],
+        cwd: 'app/public/',
+        dest: 'dist/'
+      }
+    },
+
+    watch: {
+      css: {
+        files: 'src/scss/**/*.scss',
+        tasks: ['build:css'],
+        options: {
+          interrupt: true,
+          livereload: true
+        }
+      },
+      js: {
+        files: ['src/js/dvsa.js', 'src/js/dvsa/*.js', 'src/js/main.js'],
+        tasks: ['build:js'],
+        options: {
+          interrupt: true,
+          livereload: true
+        }
+      }
+    },
+
+    concat: {
+      js: {
+        src: [
+          'src/js/dvsa.js',
+          'src/js/dvsa/*.js',
+          // main.js always last !
+          'src/js/main.js'
+        ],
+        dest: 'app/public/javascripts/dvsa.js'
+      }
+    },
+
+    uglify: {
+      authentication: {
+        options: {
+          mangle: false,
+          sourceMap: false,
+          compress: {
+            drop_console: true
+          },
+          // the banner is inserted at the top of the output
+          banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        },
+        files: {
+          'app/public/javascripts/authentication.js': ['src/js/dvsa/authentication.js']
+        }
+      }
+    }
+  })
+
+  grunt.loadNpmTasks('grunt-contrib-copy')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-imagemin')
+  grunt.loadNpmTasks('grunt-sass')
+  grunt.loadNpmTasks('grunt-notify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
 
     // Build assets from src files
-    grunt.registerTask('build:css', ['sass:dev']);
-    grunt.registerTask('build:img', ['imagemin:dist']);
-    grunt.registerTask('build:js',  ['concat:js', 'uglify:authentication']);
-
-    grunt.registerTask('build:no-lint', ['sass:dev', 'build:img', 'concat:js', 'uglify:authentication']);
-    grunt.registerTask('build', ['build:css', 'build:img', 'build:js']);
-
-    grunt.registerTask('watcher', ['watch']);
+  grunt.registerTask('build:css', ['sass:dev'])
+  grunt.registerTask('build:img', ['imagemin:dist'])
+  grunt.registerTask('build:js', ['concat:js', 'uglify:authentication'])
+  grunt.registerTask('build', ['build:css', 'build:img', 'build:js'])
+  grunt.registerTask('watcher', ['watch'])
 
     // Copy assets to dist folder
-    grunt.registerTask('dist', ['copy:todist']);
+  grunt.registerTask('dist', ['copy:todist'])
 
     // Default task that happens during development
-    grunt.registerTask('default', ['build:css', 'build:js']);
-
-};
+  grunt.registerTask('default', ['build'])
+}
