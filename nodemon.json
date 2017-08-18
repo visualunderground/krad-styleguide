@@ -1,9 +1,7 @@
 {
   "verbose": true,
   "ignore": [
-    ".git", 
-    "bower_components",
-    "govuk_components",
+    ".git",
     "node_modules",
     "dist"
   ]

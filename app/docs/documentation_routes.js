@@ -42,7 +42,7 @@ module.exports = {
       }
 
       html = marked(doc)
-      res.render('foo', {document: html, navigation: tree, assetPath: '/public/'})
+      res.render('docs', {document: html, navigation: tree, assetPath: '/public/'})
     })
   }
 }
